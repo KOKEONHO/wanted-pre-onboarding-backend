@@ -30,7 +30,7 @@ public class JasyptConfigTest {
 	}
 
 	private String jasyptEncrypt(String input) {
-		String key = System.getProperty("password");
+		String key = System.getProperty("jasypt.encryptor.password");
 		StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
 		encryptor.setAlgorithm("PBEWithMD5AndDES");
 		encryptor.setPassword(key);
@@ -38,7 +38,7 @@ public class JasyptConfigTest {
 	}
 
 	private String jasyptDecrypt(String input) {
-		String key = System.getProperty("password");
+		String key = System.getProperty("jasypt.encryptor.password");
 		StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
 		encryptor.setAlgorithm("PBEWithMD5AndDES");
 		encryptor.setPassword(key);
