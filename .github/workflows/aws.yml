@@ -69,7 +69,7 @@ jobs:
         run: |
           cd ${{ github.workspace }}
           chmod +x gradlew
-          ./gradlew clean build -Dspring.profiles.active=prod -Djasypt.encryptor.password=${{ secrets.JASYPT_ENCRYPTOR_PASSWORD }}        
+          ./gradlew clean build -Dspring.profiles.active=test -Djasypt.encryptor.password=${{ secrets.JASYPT_ENCRYPTOR_PASSWORD }}        
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
