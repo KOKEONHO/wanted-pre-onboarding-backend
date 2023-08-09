@@ -2,9 +2,6 @@ jasypt:
   encryptor:
     bean: jasyptStringEncryptor
 spring:
-  logging:
-    level:
-      root: DEBUG
   datasource:
     url: ENC(G1FkoKhv0FR/nyT2pgNgM+mf457KKdqMqenE3sB+IWguMRcntq73pnzCc4LuMbKjbJENJL+vQZEIisGEQBiBAwOZu0jf7K7DnnBdRtq/HJsFTuLThJm4Lix/Tyg6wseaRk8ja/yhAyL22pmPkQEbuQ==)
     username: ENC(AoE2hwRWKMqIVKzMMIVebg==)
