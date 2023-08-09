@@ -1,0 +1,15 @@
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
+spring:
+  logging:
+    level:
+      root: DEBUG
+  datasource:
+    url: ENC(ybB/nUJevseZ1hyZTvpLamjFrTflzATIv4zs5fhKZFIdtEJF/eZasm0pDqUK81d7qbZPihz/hswioQqrhlf6+evpTRQadAI9GrIviqxlVXz2HUY+6QdnZp/N/hFEmC0pCakXtA+bLA4=)
+    username: ENC(AoE2hwRWKMqIVKzMMIVebg==)
+    password: ENC(RK5W4na3nfatvtrIfk4W+Pva/NJBaFDH)
+  sql:
+    init:
+      schema-locations: classpath:schema.sql
+      mode: always
