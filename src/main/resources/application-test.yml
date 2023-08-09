@@ -1,3 +1,6 @@
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
 spring:
   datasource:
     url: ENC(r4r+G75p/uhs4EyvkbLeEPGxu3S5s3xHC6UOhelVcaLWz2sfK4xOVnW4WGAvZ9ktMQlh8tiTWug=)
