@@ -85,7 +85,7 @@ jobs:
         run: |
           IMAGE_ID=$ECR_REGISTRY/${{ env.ECR_REPOSITORY }}:$IMAGE_TAG
           LATEST_IMAGE_ID=$ECR_REGISTRY/${{ env.ECR_REPOSITORY }}:latest
-          docker buildx build --platform linux/amd64 -t $IMAGE_ID -f ${{ github.workspace }}/Dockerfile .
+          docker buildx build --load --platform linux/amd64 -t $IMAGE_ID -f ${{ github.workspace }}/Dockerfile .
           docker tag $IMAGE_ID $LATEST_IMAGE_ID
           docker push $IMAGE_ID
           docker push $LATEST_IMAGE_ID
