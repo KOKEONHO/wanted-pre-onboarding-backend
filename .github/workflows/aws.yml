@@ -9,7 +9,6 @@ env:
   ECR_REPOSITORY: wanted-pre-onboarding-ecr
   ECS_SERVICE: wanted-pre-onboarding
   ECS_CLUSTER: wanted-pre-onboarding
-  ECS_TASK_DEFINITION: wanted-pre-onboarding-task-definition
   CONTAINER_NAME: was-container
 
 
@@ -83,8 +82,8 @@ jobs:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          IMAGE_ID=$ECR_REGISTRY/${{ env.ECR_REPOSITORY }}:$IMAGE_TAG
-          LATEST_IMAGE_ID=$ECR_REGISTRY/${{ env.ECR_REPOSITORY }}:latest
+          IMAGE_ID=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          LATEST_IMAGE_ID=$ECR_REGISTRY/$ECR_REPOSITORY:latest
           docker buildx build --load --platform linux/amd64 -t $IMAGE_ID -f ${{ github.workspace }}/Dockerfile .
           docker tag $IMAGE_ID $LATEST_IMAGE_ID
           docker push $IMAGE_ID
@@ -102,7 +101,7 @@ jobs:
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: ${{ env.ECS_TASK_DEFINITION }}
+          task-definition: ${{ env.TASK_DEF_JSON }}
           container-name: ${{ env.CONTAINER_NAME }}
           image: ${{ steps.build-image.outputs.image }}
 
