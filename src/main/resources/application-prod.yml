@@ -11,3 +11,11 @@ spring:
     init:
       schema-locations: classpath:schema.sql
       mode: always
+management:
+  endpoints:
+    web:
+      base-path: /management
+      exposure:
+        include: health
+      path-mapping:
+        health: health_check
