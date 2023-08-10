@@ -9,7 +9,6 @@ env:
   ECR_REPOSITORY: wanted-pre-onboarding-ecr
   ECS_SERVICE: wanted-pre-onboarding
   ECS_CLUSTER: wanted-pre-onboarding
-  ECS_TASK_DEFINITION: wanted-pre-onboarding-task-definition
   CONTAINER_NAME: was-container
 
 
@@ -102,7 +101,7 @@ jobs:
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: ${{ env.ECS_TASK_DEFINITION }}
+          task-definition: ${{ env.TASK_DEF_JSON }}
           container-name: ${{ env.CONTAINER_NAME }}
           image: ${{ steps.build-image.outputs.image }}
 
