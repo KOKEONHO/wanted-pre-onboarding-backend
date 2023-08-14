@@ -7,7 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import wantedpreonboarding.boardservice.article.domain.Article;
+
 @Entity
+@Getter
 @Table(name = "member")
 public class Member {
 
