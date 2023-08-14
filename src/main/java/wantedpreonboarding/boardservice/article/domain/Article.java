@@ -1,4 +1,4 @@
-package wantedpreonboarding.boardservice.member.domain;
+package wantedpreonboarding.boardservice.article.domain;
 
 import java.time.LocalDateTime;
 
@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Getter;
+import wantedpreonboarding.boardservice.member.domain.Member;
 
 @Entity
 @Getter
