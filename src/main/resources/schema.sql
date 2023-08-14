@@ -41,14 +41,14 @@ DROP TABLE IF EXISTS `board_service`.`article`;
 CREATE TABLE IF NOT EXISTS `board_service`.`article`
 (
     `article_id` BIGINT(20)   NOT NULL AUTO_INCREMENT,
-    `member_id`  BIGINT(20)   NOT NULL,
+    `writer_id`  BIGINT(20)   NOT NULL,
     `title`      VARCHAR(100) NOT NULL,
     `contents`   VARCHAR(500) NULL,
     `posted_at`  DATETIME     NOT NULL,
     PRIMARY KEY (`article_id`),
-    INDEX `fk_article_member_idx` (`member_id` ASC) VISIBLE,
+    INDEX `fk_article_member_idx` (`writer_id` ASC) VISIBLE,
     CONSTRAINT `fk_article_member`
-        FOREIGN KEY (`member_id`)
+        FOREIGN KEY (`writer_id`)
             REFERENCES `board_service`.`member` (`member_id`)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION
