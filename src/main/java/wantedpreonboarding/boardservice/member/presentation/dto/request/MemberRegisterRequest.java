@@ -20,7 +20,7 @@ public class MemberRegisterRequest {
 
 	@NotBlank
 	@Pattern(message = "비밀번호는 공백을 포함하지 않는 8~16자이며, 최소 하나의 특수문자를 포함해야 합니다.",
-		regexp = "(?=.*[a-zA-Z])(?=.*\\W)(?=\\S+$).{8,16}")
+		regexp = "(?=\\S+$).{8,16}")
 	private String password;
 
 	public MemberRegisterRequest(String name, String email, String password) {
