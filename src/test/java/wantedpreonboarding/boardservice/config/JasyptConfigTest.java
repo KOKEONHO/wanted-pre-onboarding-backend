@@ -21,6 +21,8 @@ public class JasyptConfigTest {
 		String testDbUrl = System.getProperty("testdb.url");
 		String testDbUsername = System.getProperty("testdb.username");
 		String testDbPassword = System.getProperty("testdb.password");
+		String jwtSecretKey = System.getProperty("jwt.secret.key");
+		String jwtExpireLength = System.getProperty("jwt.expire.length");
 
 		String encryptLocalDbUrl = jasyptEncrypt(localDbUrl);
 		String encryptLocalDbUsername = jasyptEncrypt(localDbUsername);
@@ -31,6 +33,8 @@ public class JasyptConfigTest {
 		String encryptTestDbUrl = jasyptEncrypt(testDbUrl);
 		String encryptTestDbUsername = jasyptEncrypt(testDbUsername);
 		String encryptTestDbPassword = jasyptEncrypt(testDbPassword);
+		String encryptJwtSecretKey = jasyptEncrypt(jwtSecretKey);
+		String encryptJwtExpireLength = jasyptEncrypt(jwtExpireLength);
 
 		log.info("Encrypted localDbUrl: {}", encryptLocalDbUrl);
 		log.info("Encrypted localDbUsername: {}", encryptLocalDbUsername);
@@ -41,6 +45,8 @@ public class JasyptConfigTest {
 		log.info("Encrypted testDbUrl: {}", encryptTestDbUrl);
 		log.info("Encrypted testDbUsername: {}", encryptTestDbUsername);
 		log.info("Encrypted testDbPassword: {}", encryptTestDbPassword);
+		log.info("Encrypted jwtSecretKey: {}", encryptJwtSecretKey);
+		log.info("Encrypted jwtExpireLength: {}", encryptJwtExpireLength);
 
 		assertThat(localDbUrl).isEqualTo(jasyptDecrypt(encryptLocalDbUrl));
 		assertThat(localDbUsername).isEqualTo(jasyptDecrypt(encryptLocalDbUsername));
@@ -51,6 +57,8 @@ public class JasyptConfigTest {
 		assertThat(testDbUrl).isEqualTo(jasyptDecrypt(encryptTestDbUrl));
 		assertThat(testDbUsername).isEqualTo(jasyptDecrypt(encryptTestDbUsername));
 		assertThat(testDbPassword).isEqualTo(jasyptDecrypt(encryptTestDbPassword));
+		assertThat(jwtSecretKey).isEqualTo(jasyptDecrypt(encryptJwtSecretKey));
+		assertThat(jwtExpireLength).isEqualTo(jasyptDecrypt(encryptJwtExpireLength));
 	}
 
 	private String jasyptEncrypt(String input) {
