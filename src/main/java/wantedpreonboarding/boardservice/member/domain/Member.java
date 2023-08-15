@@ -43,7 +43,7 @@ public class Member {
 		this.password = password;
 	}
 
-	public static Member of(MemberRegisterRequest request) {
-		return new Member(request.getName(), request.getEmail(), request.getPassword());
+	public static Member of(MemberRegisterRequest request, String encryptPassword) {
+		return new Member(request.getName(), request.getEmail(), encryptPassword);
 	}
 }
