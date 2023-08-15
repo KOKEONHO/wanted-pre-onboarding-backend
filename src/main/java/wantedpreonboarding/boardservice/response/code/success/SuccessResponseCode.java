@@ -2,7 +2,7 @@ package wantedpreonboarding.boardservice.response.code.success;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import wantedpreonboarding.boardservice.response.code.Code;
+import wantedpreonboarding.boardservice.common.Code;
 
 @Getter
 @RequiredArgsConstructor
