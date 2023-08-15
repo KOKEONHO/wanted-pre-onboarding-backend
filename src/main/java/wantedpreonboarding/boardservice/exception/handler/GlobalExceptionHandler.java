@@ -1,4 +1,4 @@
-package wantedpreonboarding.boardservice.exception;
+package wantedpreonboarding.boardservice.exception.handler;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,6 +15,8 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import lombok.extern.slf4j.Slf4j;
 import wantedpreonboarding.boardservice.common.Code;
+import wantedpreonboarding.boardservice.exception.RestApiException;
+import wantedpreonboarding.boardservice.exception.ValidationException;
 import wantedpreonboarding.boardservice.exception.code.CommonExceptionCode;
 import wantedpreonboarding.boardservice.exception.dto.ExceptionResponseDto;
 

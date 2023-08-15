@@ -6,7 +6,7 @@ import wantedpreonboarding.boardservice.common.Code;
 
 @Getter
 @RequiredArgsConstructor
-public enum CommonErrorCode implements Code {
+public enum CommonExceptionCode implements Code {
 
 	INVALID_PARAMETER(false, 400, -40000, "잘못된 매개변수가 포함되었습니다."),
 	RESOURCE_NOT_FOUND(false, 404, -40400, "리소스가 존재하지 않습니다."),
