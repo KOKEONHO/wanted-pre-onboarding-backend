@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 import lombok.Getter;
 import lombok.ToString;
-import wantedpreonboarding.boardservice.response.code.Code;
+import wantedpreonboarding.boardservice.common.Code;
 
 @Getter
 @ToString
