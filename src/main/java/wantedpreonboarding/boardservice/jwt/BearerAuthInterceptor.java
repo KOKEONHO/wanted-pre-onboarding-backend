@@ -1,5 +1,7 @@
 package wantedpreonboarding.boardservice.jwt;
 
+import static wantedpreonboarding.boardservice.exception.code.TokenExceptionCode.*;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -22,13 +24,20 @@ public class BearerAuthInterceptor implements HandlerInterceptor {
 		this.jwtTokenProvider = jwtTokenProvider;
 	}
 
-	// @Override
-	// public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
-	// 	log.info("[BearerAuthInterceptor.preHandle 호출]");
-	// 	String token = authExtractor.extract(request, "Bearer");
-	// 	if (StringUtils.isEmpty(token)) {
-	// 		return true;
-	// 	}
-	//
-	// }
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
+		log.info("[BearerAuthInterceptor.preHandle 호출]");
+		String token = authExtractor.extract(request, "Bearer");
+		if (StringUtils.isEmpty(token)) {
+			return true;
+		}
+
+		if (!jwtTokenProvider.validateToken(token)) {
+			throw new RestApiException(TOKEN_INVALID);
+		}
+
+		Long memberId = jwtTokenProvider.getMemberId(token);
+		request.setAttribute("memberId", memberId);
+		return true;
+	}
 }
