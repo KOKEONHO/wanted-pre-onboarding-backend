@@ -12,12 +12,14 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import wantedpreonboarding.boardservice.article.domain.Article;
 import wantedpreonboarding.boardservice.member.presentation.dto.request.MemberRegisterRequest;
 
 @Entity
 @Getter
 @Table(name = "member")
+@NoArgsConstructor
 public class Member {
 
 	@Id
