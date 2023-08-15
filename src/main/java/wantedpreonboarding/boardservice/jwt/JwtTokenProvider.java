@@ -47,6 +47,11 @@ public class JwtTokenProvider {
 			.getBody();
 	}
 
+	public Long getMemberId(String token) {
+		Claims claims = getClaims(token);
+		return claims.get("memberId", Long.class);
+	}
+
 	public boolean validateToken(String token) {
 		try {
 			Jws<Claims> claims = Jwts.parserBuilder().setSigningKey(secretKey).build().parseClaimsJws(token);
