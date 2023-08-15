@@ -13,6 +13,7 @@ import javax.persistence.Table;
 
 import lombok.Getter;
 import wantedpreonboarding.boardservice.article.domain.Article;
+import wantedpreonboarding.boardservice.member.presentation.dto.request.MemberRegisterRequest;
 
 @Entity
 @Getter
@@ -35,4 +36,14 @@ public class Member {
 
 	@OneToMany(mappedBy = "writer")
 	private List<Article> articles = new ArrayList<>();
+
+	private Member(String name, String email, String password) {
+		this.name = name;
+		this.email = email;
+		this.password = password;
+	}
+
+	public static Member of(MemberRegisterRequest request) {
+		return new Member(request.getName(), request.getEmail(), request.getPassword());
+	}
 }
