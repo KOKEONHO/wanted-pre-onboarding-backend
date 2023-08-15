@@ -1,4 +1,4 @@
-package wantedpreonboarding.boardservice.response.code;
+package wantedpreonboarding.boardservice.common;
 
 public interface Code {
 
