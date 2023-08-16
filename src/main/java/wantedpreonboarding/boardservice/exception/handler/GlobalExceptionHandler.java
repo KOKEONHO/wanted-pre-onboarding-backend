@@ -84,7 +84,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 		return ExceptionResponseDto.builder()
 			.success(errorCode.isSuccess())
 			.status(errorCode.getStatus())
-			.status(errorCode.getCode())
+			.code(errorCode.getCode())
 			.message(errorCode.getMessage())
 			.build();
 	}
