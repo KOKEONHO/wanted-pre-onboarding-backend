@@ -8,14 +8,8 @@
 
 ## 기술 스택
 
-<img src="https://img.shields.io/badge/springboot-6DB33F?style=badge&logo=springboot&logoColor=white">
-<img src="https://img.shields.io/badge/restdocs-6DB33F?style=badge&logo=spring&logoColor=white">
-<img src="https://img.shields.io/badge/mysql-4479A1?style=badge&logo=mysql&logoColor=white">
-<img src="https://img.shields.io/badge/aws-232F3E?style=badge&logo=amazonaws&logoColor=white">
-<img src="https://img.shields.io/badge/ecr-232F3E?style=badge&logo=amazonaws&logoColor=white">
-<img src="https://img.shields.io/badge/ecs-232F3E?style=badge&logo=amazonaws&logoColor=white">
-<img src="https://img.shields.io/badge/docker-2496ED?style=badge&logo=docker&logoColor=white">
-<img src="https://img.shields.io/badge/githubactions-2088FF?style=badge&logo=githubactions&logoColor=white">
+<img src="https://img.shields.io/badge/springboot-6DB33F?style=badge&logo=springboot&logoColor=white"> <img src="https://img.shields.io/badge/restdocs-6DB33F?style=badge&logo=spring&logoColor=white"> <img src="https://img.shields.io/badge/mysql-4479A1?style=badge&logo=mysql&logoColor=white"> <img src="https://img.shields.io/badge/aws-232F3E?style=badge&logo=amazonaws&logoColor=white"> <img src="https://img.shields.io/badge/ecr-232F3E?style=badge&logo=amazonaws&logoColor=white"> <img src="https://img.shields.io/badge/ecs-232F3E?style=badge&logo=amazonaws&logoColor=white">
+<img src="https://img.shields.io/badge/docker-2496ED?style=badge&logo=docker&logoColor=white"> <img src="https://img.shields.io/badge/githubactions-2088FF?style=badge&logo=githubactions&logoColor=white">
 
 ## 애플리케이션 실행 방법
 
