@@ -48,4 +48,9 @@ public class Article {
 		this.contents = contents;
 		this.postedAt = LocalDateTime.now();
 	}
+
+	public void updateArticle(String title, String contents) {
+		this.title = title;
+		this.contents = contents;
+	}
 }
