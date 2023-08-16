@@ -24,4 +24,12 @@
 
 ### 배포 환경 + API 테스트 툴
 
-1. [배포 주소](https://gomungnamcafe.site)와 
+1. API 테스트 툴에서 사용할 주소를 [배포 주소](https://gomungnamcafe.site)로 설정
+2. API 명세서를 참고하여 테스트 진행  
+
+(하단의 [데모 영상](https://youtu.be/VCZ7nP40BoI) 참고)
+
+## 데모 영상
+배포 환경 + API 테스트 툴을 사용한 [데모 영상](https://youtu.be/VCZ7nP40BoI)
+
+## API 명세서
