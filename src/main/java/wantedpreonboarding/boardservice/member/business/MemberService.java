@@ -36,7 +36,7 @@ public class MemberService {
 			}); // 중복 email로 가입 시도 시에 예외 발생
 		String encryptPassword = passwordEncoder.encrypt(request.getEmail(), request.getPassword());
 		Member saveMember = memberRepository.save(Member.of(request, encryptPassword));
-		return new MemberRegisterResponse(saveMember);
+		return new MemberRegisterResponse(saveMember.getId());
 	}
 
 	public MemberLoginResponse login(MemberLoginRequest request) {
