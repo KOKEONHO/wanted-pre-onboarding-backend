@@ -10,6 +10,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -45,6 +46,13 @@ public class ArticleController {
 		ArticleDetailResponse articleDetailResponse = articleService.findArticleDetailById(httpServletRequest,
 			articleId);
 		return ResponseDto.of(RESPONSE_SUCCESS, articleDetailResponse);
+	}
+
+	@PutMapping("/{articleId}")
+	public ResponseDto<ArticleIdResponse> updateArticle(HttpServletRequest httpServletRequest,
+		@RequestBody ArticleRequest request, @PathVariable Long articleId) {
+		ArticleIdResponse articleIdResponse = articleService.updateArticle(httpServletRequest, request, articleId);
+		return ResponseDto.of(RESPONSE_SUCCESS, articleIdResponse);
 	}
 
 	@PostMapping("/form")

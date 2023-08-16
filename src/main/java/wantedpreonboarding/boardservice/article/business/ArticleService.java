@@ -49,6 +49,21 @@ public class ArticleService {
 		return new ArticleIdResponse(saveArticle.getId());
 	}
 
+	public ArticleIdResponse updateArticle(HttpServletRequest httpServletRequest, ArticleRequest request,
+		Long articleId) {
+		Long memberId = (Long)httpServletRequest.getAttribute("memberId");
+		if (memberId == null) {
+			throw new RestApiException(REQUIRED_REGISTER);
+		}
+		Article foundArticle = articleRepository.findById(articleId)
+			.orElseThrow(() -> new RestApiException(NO_EXISTING_ARTICLE));
+		if (foundArticle.getWriter().getId() != memberId) {
+			throw new RestApiException(UNAUTHORIZED_EXCEPTION_EDIT);
+		}
+		foundArticle.updateArticle(request.getTitle(), request.getContents());
+		return new ArticleIdResponse(foundArticle.getId());
+	}
+
 	public ArticlesResponse showArticles(Pageable pageable) {
 		Page<Article> page = articleRepository.findAll(pageable);
 		Page<ArticleResponse> articles = page.map(article -> new ArticleResponse(article.getId(), article.getTitle()));
