@@ -9,7 +9,10 @@ public interface ApiDocumentUtils {
 
 	static OperationRequestPreprocessor getDocumentRequest() {
 		return preprocessRequest(
-			// modifyUris() -> 추후 작성 예정
+			modifyUris()
+				.scheme("https")
+				.host("gomungnamcafe.site")
+				.removePort(),
 			prettyPrint()
 		);
 	}

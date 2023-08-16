@@ -8,5 +8,3 @@ operation::member-controller-test/register[snippets='http-request,http-response,
 [[Member-로그인]]
 === Member 로그인
 operation::member-controller-test/login[snippets='http-request,http-response,request-fields,response-fields']
-
-
