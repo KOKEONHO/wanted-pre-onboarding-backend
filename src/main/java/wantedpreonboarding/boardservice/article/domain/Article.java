@@ -14,11 +14,13 @@ import javax.persistence.Table;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import wantedpreonboarding.boardservice.member.domain.Member;
 
 @Entity
 @Getter
 @Table(name = "article")
+@NoArgsConstructor
 public class Article {
 
 	@Id
