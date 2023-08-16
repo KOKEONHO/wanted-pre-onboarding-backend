@@ -1,5 +1,7 @@
 package wantedpreonboarding.boardservice.article.business;
 
+import static wantedpreonboarding.boardservice.exception.code.ArticleExceptionCode.*;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 
@@ -12,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import wantedpreonboarding.boardservice.article.domain.Article;
 import wantedpreonboarding.boardservice.article.domain.ArticleRepository;
 import wantedpreonboarding.boardservice.article.presentation.dto.request.ArticleRequest;
+import wantedpreonboarding.boardservice.article.presentation.dto.response.ArticleDetailResponse;
 import wantedpreonboarding.boardservice.article.presentation.dto.response.ArticleIdResponse;
 import wantedpreonboarding.boardservice.article.presentation.dto.response.ArticleResponse;
 import wantedpreonboarding.boardservice.article.presentation.dto.response.ArticlesResponse;
@@ -50,5 +53,19 @@ public class ArticleService {
 		Page<Article> page = articleRepository.findAll(pageable);
 		Page<ArticleResponse> articles = page.map(article -> new ArticleResponse(article.getId(), article.getTitle()));
 		return new ArticlesResponse(articles);
+	}
+
+	public ArticleDetailResponse findArticleDetailById(HttpServletRequest httpServletRequest, Long articleId) {
+		Long memberId = (Long)httpServletRequest.getAttribute("memberId");
+		Member member = memberRepository.findById(memberId)
+			.orElseThrow(() -> new RestApiException(MemberExceptionCode.REQUIRED_REGISTER));
+		Article foundArticle = findArticle(articleId);
+		String writerEmail = foundArticle.getWriter().getEmail();
+		return ArticleDetailResponse.of(writerEmail, foundArticle);
+	}
+
+	private Article findArticle(Long articleId) {
+		return articleRepository.findById(articleId)
+			.orElseThrow(() -> new RestApiException(NO_EXISTING_ARTICLE));
 	}
 }
