@@ -11,3 +11,8 @@ spring:
     init:
       schema-locations: classpath:schema.sql
       mode: always
+security:
+  jwt:
+    token:
+      secret-key: ENC(+OE50rHWSUDc/cQYOwCfRIWKX+8yd3QKRpee4oshFBBXjvitpbh8t4oqQ7NrDuQECLNxeCGXP5T5LnHl3hjjFQ==)
+      expire-length: ENC(wlpSC8pyEY7BI94TCfMFnQ==)
