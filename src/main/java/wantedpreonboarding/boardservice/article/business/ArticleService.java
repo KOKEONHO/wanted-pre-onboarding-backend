@@ -3,6 +3,8 @@ package wantedpreonboarding.boardservice.article.business;
 import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -11,6 +13,8 @@ import wantedpreonboarding.boardservice.article.domain.Article;
 import wantedpreonboarding.boardservice.article.domain.ArticleRepository;
 import wantedpreonboarding.boardservice.article.presentation.dto.request.ArticleRequest;
 import wantedpreonboarding.boardservice.article.presentation.dto.response.ArticleIdResponse;
+import wantedpreonboarding.boardservice.article.presentation.dto.response.ArticleResponse;
+import wantedpreonboarding.boardservice.article.presentation.dto.response.ArticlesResponse;
 import wantedpreonboarding.boardservice.exception.RestApiException;
 import wantedpreonboarding.boardservice.exception.code.MemberExceptionCode;
 import wantedpreonboarding.boardservice.member.domain.Member;
@@ -40,5 +44,11 @@ public class ArticleService {
 
 		Article saveArticle = articleRepository.save(newArticle);
 		return new ArticleIdResponse(saveArticle.getId());
+	}
+
+	public ArticlesResponse showArticles(Pageable pageable) {
+		Page<Article> page = articleRepository.findAll(pageable);
+		Page<ArticleResponse> articles = page.map(article -> new ArticleResponse(article.getId(), article.getTitle()));
+		return new ArticlesResponse(articles);
 	}
 }
