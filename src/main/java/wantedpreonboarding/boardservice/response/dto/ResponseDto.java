@@ -23,6 +23,7 @@ public class ResponseDto<T> {
 		this.status = code.getStatus();
 		this.code = code.getCode();
 		this.message = code.getMessage();
+		this.data = data;
 	}
 
 	public static <T> ResponseDto<T> of(Code code, T data) {

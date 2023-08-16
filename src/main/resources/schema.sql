@@ -23,10 +23,11 @@ DROP TABLE IF EXISTS `board_service`.`member`;
 
 CREATE TABLE IF NOT EXISTS `board_service`.`member`
 (
-    `member_id` BIGINT(20)   NOT NULL AUTO_INCREMENT,
-    `name`      VARCHAR(45)  NOT NULL,
-    `email`     VARCHAR(50)  NOT NULL,
-    `password`  VARCHAR(255) NOT NULL,
+    `member_id`     BIGINT(20)   NOT NULL AUTO_INCREMENT,
+    `name`          VARCHAR(45)  NOT NULL,
+    `email`         VARCHAR(50)  NOT NULL,
+    `password`      VARCHAR(255) NOT NULL,
+    `refresh_token` VARCHAR(255),
     PRIMARY KEY (`member_id`),
     UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE
 )
