@@ -1,6 +1,7 @@
 package wantedpreonboarding.boardservice.article.business;
 
 import static wantedpreonboarding.boardservice.exception.code.ArticleExceptionCode.*;
+import static wantedpreonboarding.boardservice.exception.code.MemberExceptionCode.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
@@ -19,7 +20,6 @@ import wantedpreonboarding.boardservice.article.presentation.dto.response.Articl
 import wantedpreonboarding.boardservice.article.presentation.dto.response.ArticleResponse;
 import wantedpreonboarding.boardservice.article.presentation.dto.response.ArticlesResponse;
 import wantedpreonboarding.boardservice.exception.RestApiException;
-import wantedpreonboarding.boardservice.exception.code.MemberExceptionCode;
 import wantedpreonboarding.boardservice.member.domain.Member;
 import wantedpreonboarding.boardservice.member.domain.MemberRepository;
 
@@ -35,7 +35,7 @@ public class ArticleService {
 	public ArticleIdResponse createArticle(HttpServletRequest httpServletRequest, ArticleRequest request) {
 		Long memberId = (Long)httpServletRequest.getAttribute("memberId");
 		Member member = memberRepository.findById(memberId)
-			.orElseThrow(() -> new RestApiException(MemberExceptionCode.REQUIRED_REGISTER));
+			.orElseThrow(() -> new RestApiException(REQUIRED_REGISTER));
 		log.info("[ArticleService] [request.title] {}", request.getTitle());
 		log.info("[ArticleService] [request.contents] {}", request.getContents());
 
@@ -57,8 +57,9 @@ public class ArticleService {
 
 	public ArticleDetailResponse findArticleDetailById(HttpServletRequest httpServletRequest, Long articleId) {
 		Long memberId = (Long)httpServletRequest.getAttribute("memberId");
-		Member member = memberRepository.findById(memberId)
-			.orElseThrow(() -> new RestApiException(MemberExceptionCode.REQUIRED_REGISTER));
+		if (memberId == null) {
+			throw new RestApiException(REQUIRED_REGISTER);
+		}
 		Article foundArticle = findArticle(articleId);
 		String writerEmail = foundArticle.getWriter().getEmail();
 		return ArticleDetailResponse.of(writerEmail, foundArticle);
