@@ -36,9 +36,6 @@ public class Member {
 	@Column(name = "password")
 	private String password;
 
-	@Column(name = "refresh_token")
-	private String refreshToken;
-
 	@OneToMany(mappedBy = "writer")
 	private List<Article> articles = new ArrayList<>();
 
