@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,10 +56,18 @@ public class ArticleController {
 		return ResponseDto.of(RESPONSE_SUCCESS, articleIdResponse);
 	}
 
+	@DeleteMapping("/{articleId}")
+	public ResponseDto<ArticleIdResponse> deleteArticle(HttpServletRequest httpServletRequest,
+		@PathVariable Long articleId) {
+		ArticleIdResponse articleIdResponse = articleService.deleteArticle(httpServletRequest, articleId);
+		return ResponseDto.of(RESPONSE_SUCCESS, articleIdResponse);
+	}
+
 	@PostMapping("/form")
 	public ResponseDto<ArticleIdResponse> createArticle(HttpServletRequest httpServletRequest,
 		@RequestBody ArticleRequest request) {
 		ArticleIdResponse articleIdResponse = articleService.createArticle(httpServletRequest, request);
 		return ResponseDto.of(RESPONSE_SUCCESS, articleIdResponse);
 	}
+
 }
