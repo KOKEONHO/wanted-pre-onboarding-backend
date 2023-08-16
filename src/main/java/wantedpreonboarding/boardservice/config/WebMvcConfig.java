@@ -18,7 +18,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(bearerAuthInterceptor)
 			.addPathPatterns(
-				// 추후 추가 예정
+				"/api/articles/form"
 			);
 	}
 }

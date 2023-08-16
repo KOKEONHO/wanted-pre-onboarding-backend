@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.Builder;
 import lombok.Getter;
 import wantedpreonboarding.boardservice.member.domain.Member;
 
@@ -37,4 +38,12 @@ public class Article {
 
 	@Column(name = "posted_at")
 	private LocalDateTime postedAt;
+
+	@Builder
+	public Article(Member writer, String title, String contents) {
+		this.writer = writer;
+		this.title = title;
+		this.contents = contents;
+		this.postedAt = LocalDateTime.now();
+	}
 }
