@@ -11,7 +11,9 @@
 <img src="https://img.shields.io/badge/springboot-6DB33F?style=badge&logo=springboot&logoColor=white"> <img src="https://img.shields.io/badge/restdocs-6DB33F?style=badge&logo=spring&logoColor=white"> <img src="https://img.shields.io/badge/mysql-4479A1?style=badge&logo=mysql&logoColor=white"> <img src="https://img.shields.io/badge/aws-232F3E?style=badge&logo=amazonaws&logoColor=white"> <img src="https://img.shields.io/badge/ecr-232F3E?style=badge&logo=amazonaws&logoColor=white"> <img src="https://img.shields.io/badge/ecs-232F3E?style=badge&logo=amazonaws&logoColor=white">
 <img src="https://img.shields.io/badge/docker-2496ED?style=badge&logo=docker&logoColor=white"> <img src="https://img.shields.io/badge/githubactions-2088FF?style=badge&logo=githubactions&logoColor=white">
 
+## 인프라 구성도
 
+![wanted-infra-architecture 001](https://github.com/KOKEONHO/wanted-pre-onboarding-backend/assets/77562698/337e16de-01aa-4946-8ea8-ec40f6a3bc75)
 
 ## API 명세서
 [배포 주소](https://gomungnamcafe.site)에 들어가면 확인 가능
