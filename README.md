@@ -11,6 +11,11 @@
 <img src="https://img.shields.io/badge/springboot-6DB33F?style=badge&logo=springboot&logoColor=white"> <img src="https://img.shields.io/badge/restdocs-6DB33F?style=badge&logo=spring&logoColor=white"> <img src="https://img.shields.io/badge/mysql-4479A1?style=badge&logo=mysql&logoColor=white"> <img src="https://img.shields.io/badge/aws-232F3E?style=badge&logo=amazonaws&logoColor=white"> <img src="https://img.shields.io/badge/ecr-232F3E?style=badge&logo=amazonaws&logoColor=white"> <img src="https://img.shields.io/badge/ecs-232F3E?style=badge&logo=amazonaws&logoColor=white">
 <img src="https://img.shields.io/badge/docker-2496ED?style=badge&logo=docker&logoColor=white"> <img src="https://img.shields.io/badge/githubactions-2088FF?style=badge&logo=githubactions&logoColor=white">
 
+
+
+## API 명세서
+[배포 주소](https://gomungnamcafe.site)에 들어가면 확인 가능
+
 ## 애플리케이션 실행 방법
 
 ### 로컬 환경 + IDE + API 테스트 툴
@@ -31,5 +36,3 @@
 
 ## 데모 영상
 배포 환경 + API 테스트 툴을 사용한 [데모 영상](https://youtu.be/VCZ7nP40BoI)
-
-## API 명세서
