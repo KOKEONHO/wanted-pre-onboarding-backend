@@ -7,10 +7,6 @@ spring:
     username: ENC(AoE2hwRWKMqIVKzMMIVebg==)
     password: ENC(RK5W4na3nfatvtrIfk4W+Pva/NJBaFDH)
     driver-class-name: com.mysql.cj.jdbc.Driver
-  sql:
-    init:
-      schema-locations: classpath:schema.sql
-      mode: always
 management:
   endpoints:
     web:
